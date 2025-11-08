@@ -1,0 +1,78 @@
+{
+  "name": "@endo/trampoline",
+  "version": "1.0.5",
+  "description": "Multicolor trampolining for recursive operations",
+  "keywords": [
+    "trampoline",
+    "recursive",
+    "async",
+    "sync",
+    "generator"
+  ],
+  "author": "Endo contributors",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/endojs/endo/blob/master/packages/trampoline/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endojs/endo.git",
+    "directory": "packages/trampoline"
+  },
+  "bugs": {
+    "url": "https://github.com/endojs/endo/issues"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.js",
+  "exports": {
+    ".": {
+      "types": "./types.d.ts",
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./types.d.ts",
+  "scripts": {
+    "build": "exit 0",
+    "build:types": "tsc --build tsconfig.build.json",
+    "clean:types": "git clean -fX \"*.d.ts*\" \"*.d.cts*\" \"*.d.mts*\" \"*.tsbuildinfo\"",
+    "cover": "c8 ava --config test/_ava-ses.config.js",
+    "lint": "yarn lint:types && yarn lint:eslint",
+    "lint-fix": "eslint --fix .",
+    "lint:eslint": "eslint .",
+    "lint:types": "tsc",
+    "test:types": "yarn build:types && tsd -f \"test/*.test-d.ts\"; yarn clean:types",
+    "test:ava": "ava",
+    "test": "yarn test:types && yarn test:ava"
+  },
+  "devDependencies": {
+    "ava": "catalog:dev",
+    "c8": "catalog:dev",
+    "eslint": "catalog:dev",
+    "tsd": "catalog:dev",
+    "typescript": "~5.9.2"
+  },
+  "files": [
+    "LICENSE*",
+    "SECURITY*",
+    "src",
+    "*.js",
+    "*.ts"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ]
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "timeout": "2m"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "typeCoverage": {
+    "atLeast": 96.09
+  }
+}

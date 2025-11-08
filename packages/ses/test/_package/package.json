@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "ses": "file:../.."
+  },
+  "typeCoverage": {
+    "atLeast": 0
+  }
+}

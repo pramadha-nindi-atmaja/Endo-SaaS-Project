@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.eslint-base.json",
+  "compilerOptions": {
+    "strictFunctionTypes": true,
+  },
+  "include": [
+    "*.js",
+    "*.ts",
+    "demo",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "test",
+  ]
+}

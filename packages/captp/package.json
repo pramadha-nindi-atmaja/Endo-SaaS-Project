@@ -1,0 +1,84 @@
+{
+  "name": "@endo/captp",
+  "version": "4.4.8",
+  "description": "Capability Transfer Protocol for distributed objects",
+  "type": "module",
+  "keywords": [
+    "agoric",
+    "captp",
+    "eventual-send"
+  ],
+  "author": "Endo contributors",
+  "homepage": "https://github.com/endojs/endo#readme",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "module": "src/index.js",
+  "directories": {
+    "src": "src",
+    "test": "test"
+  },
+  "files": [
+    "./*.d.ts",
+    "./*.js",
+    "./*.map",
+    "LICENSE*",
+    "SECURITY*",
+    "dist",
+    "lib",
+    "src",
+    "tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endojs/endo.git",
+    "directory": "packages/captp"
+  },
+  "scripts": {
+    "build": "exit 0",
+    "prepack": "tsc --build tsconfig.build.json",
+    "postpack": "git clean -fX \"*.d.ts*\" \"*.d.cts*\" \"*.d.mts*\" \"*.tsbuildinfo\"",
+    "test": "ses-ava",
+    "test:xs": "exit 0",
+    "lint-fix": "yarn lint:eslint --fix && yarn lint:types",
+    "lint": "yarn lint:eslint && yarn lint:types",
+    "lint:eslint": "eslint '**/*.js'",
+    "lint:types": "tsc"
+  },
+  "devDependencies": {
+    "@endo/init": "workspace:^",
+    "@endo/ses-ava": "workspace:^",
+    "ava": "catalog:dev",
+    "eslint": "catalog:dev",
+    "typescript": "~5.9.2"
+  },
+  "dependencies": {
+    "@endo/errors": "workspace:^",
+    "@endo/eventual-send": "workspace:^",
+    "@endo/marshal": "workspace:^",
+    "@endo/nat": "workspace:^",
+    "@endo/pass-style": "workspace:^",
+    "@endo/promise-kit": "workspace:^"
+  },
+  "bugs": {
+    "url": "https://github.com/endojs/endo/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sesAvaConfigs": {
+    "lockdown": "../../ava-endo-lockdown.config.mjs",
+    "unsafe": "../../ava-endo-lockdown-unsafe.config.mjs"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ]
+  },
+  "typeCoverage": {
+    "atLeast": 85.14
+  }
+}

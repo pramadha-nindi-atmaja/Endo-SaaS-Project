@@ -1,0 +1,116 @@
+{
+  "name": "@endo/compartment-mapper",
+  "version": "1.6.3",
+  "description": "The compartment mapper assembles Node applications in a sandbox",
+  "keywords": [
+    "node",
+    "endo",
+    "package",
+    "compartment"
+  ],
+  "author": "Endo contributors",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/endojs/endo/tree/master/packages/compartment-mapper#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endojs/endo.git",
+    "directory": "packages/compartment-mapper"
+  },
+  "bugs": {
+    "url": "https://github.com/endojs/endo/issues"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./import.js": "./import.js",
+    "./import-lite.js": "./import-lite.js",
+    "./import-parsers.js": "./import-parsers.js",
+    "./archive.js": "./archive.js",
+    "./archive-lite.js": "./archive-lite.js",
+    "./archive-parsers.js": "./archive-parsers.js",
+    "./capture-lite.js": "./capture-lite.js",
+    "./import-archive.js": "./import-archive.js",
+    "./import-archive-lite.js": "./import-archive-lite.js",
+    "./import-archive-parsers.js": {
+      "xs": "./import-archive-all-parsers.js",
+      "node": "./import-archive-all-parsers.js",
+      "default": "./import-archive-parsers.js"
+    },
+    "./import-archive-all-parsers.js": "./import-archive-all-parsers.js",
+    "./bundle.js": "./bundle.js",
+    "./functor.js": "./functor.js",
+    "./functor-lite.js": "./functor-lite.js",
+    "./script.js": "./script.js",
+    "./script-lite.js": "./script-lite.js",
+    "./node-powers.js": "./node-powers.js",
+    "./node-modules.js": "./node-modules.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "exit 0",
+    "prepack": "tsc --build tsconfig.build.json",
+    "postpack": "git clean -fX \"*.d.ts*\" \"*.d.cts*\" \"*.d.mts*\" \"*.tsbuildinfo\"",
+    "cover": "c8 ava --config test/_ava-ses.config.js",
+    "lint": "yarn lint:types && yarn lint:eslint",
+    "lint-fix": "eslint --fix .",
+    "lint:eslint": "eslint .",
+    "lint:types": "tsc",
+    "prettier-fixtures": "prettier --write --with-node-modules './test/fixtures-*/**/*.*js'",
+    "test": "ava"
+  },
+  "dependencies": {
+    "@endo/cjs-module-analyzer": "workspace:^",
+    "@endo/module-source": "workspace:^",
+    "@endo/path-compare": "workspace:^",
+    "@endo/trampoline": "workspace:^",
+    "@endo/zip": "workspace:^",
+    "ses": "workspace:^"
+  },
+  "devDependencies": {
+    "ava": "catalog:dev",
+    "c8": "catalog:dev",
+    "eslint": "catalog:dev",
+    "typescript": "~5.9.2"
+  },
+  "files": [
+    "./*.d.ts",
+    "./*.js",
+    "./*.map",
+    "LICENSE*",
+    "SECURITY*",
+    "dist",
+    "lib",
+    "src",
+    "tools"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.cjs",
+        "options": {
+          "parser": "babel"
+        }
+      }
+    ]
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.*"
+    ],
+    "timeout": "2m"
+  },
+  "typeCoverage": {
+    "atLeast": 86.14
+  }
+}

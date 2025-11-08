@@ -1,0 +1,58 @@
+{
+  "name": "@endo/stream-types-test",
+  "version": "1.0.18",
+  "private": true,
+  "description": "TypeScript validation for Endo stream types.",
+  "keywords": [],
+  "author": "Endo contributors",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/endojs/endo/tree/master/packages/stream-types-test#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endojs/endo.git",
+    "directory": "packages/stream-types-test"
+  },
+  "bugs": {
+    "url": "https://github.com/endojs/endo/issues"
+  },
+  "type": "module",
+  "exports": {},
+  "scripts": {
+    "build": "exit 0",
+    "lint": "yarn lint:types && yarn lint:ts",
+    "lint-fix": "eslint --fix . --ext .ts",
+    "lint:ts": "eslint . --ext .ts",
+    "lint:types": "tsc",
+    "test": "yarn lint:types"
+  },
+  "dependencies": {
+    "@endo/stream": "workspace:^",
+    "ses": "workspace:^"
+  },
+  "devDependencies": {
+    "eslint": "catalog:dev",
+    "typescript": "~5.9.2"
+  },
+  "files": [
+    "./*.d.ts",
+    "./*.js",
+    "./*.map",
+    "LICENSE*",
+    "SECURITY*",
+    "dist",
+    "lib",
+    "src",
+    "tools"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ]
+  },
+  "typeCoverage": {
+    "atLeast": 100
+  }
+}

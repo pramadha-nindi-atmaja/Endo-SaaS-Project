@@ -1,0 +1,79 @@
+{
+  "name": "@endo/patterns",
+  "version": "1.7.0",
+  "description": "Pattern matching for Passable objects, expressed as Passable data",
+  "keywords": [],
+  "author": "Endo contributors",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/endojs/endo/blob/master/packages/patterns/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endojs/endo.git",
+    "directory": "packages/patterns"
+  },
+  "bugs": {
+    "url": "https://github.com/endojs/endo/issues"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "exit 0",
+    "prepack": "tsc --build tsconfig.build.json",
+    "postpack": "git clean -fX \"*.d.ts*\" \"*.d.cts*\" \"*.d.mts*\" \"*.tsbuildinfo\"",
+    "lint": "yarn lint:types && yarn lint:eslint",
+    "lint-fix": "eslint --fix .",
+    "lint:eslint": "eslint .",
+    "lint:types": "tsc",
+    "test": "ses-ava",
+    "test:c8": "c8 ${C8_OPTIONS:-} ses-ava"
+  },
+  "dependencies": {
+    "@endo/common": "workspace:^",
+    "@endo/errors": "workspace:^",
+    "@endo/eventual-send": "workspace:^",
+    "@endo/marshal": "workspace:^",
+    "@endo/pass-style": "workspace:^",
+    "@endo/promise-kit": "workspace:^"
+  },
+  "devDependencies": {
+    "@endo/init": "workspace:^",
+    "@endo/pass-style": "workspace:^",
+    "@endo/ses-ava": "workspace:^",
+    "@fast-check/ava": "catalog:dev",
+    "ava": "catalog:dev",
+    "c8": "catalog:dev",
+    "eslint": "catalog:dev",
+    "typescript": "~5.9.2"
+  },
+  "files": [
+    "./*.d.ts",
+    "./*.js",
+    "./*.map",
+    "LICENSE*",
+    "SECURITY*",
+    "dist",
+    "lib",
+    "src",
+    "tools"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ]
+  },
+  "sesAvaConfigs": {
+    "lockdown": "../../ava-endo-lockdown.config.mjs",
+    "unsafe": "../../ava-endo-lockdown-unsafe.config.mjs"
+  },
+  "typeCoverage": {
+    "atLeast": 79.86
+  }
+}

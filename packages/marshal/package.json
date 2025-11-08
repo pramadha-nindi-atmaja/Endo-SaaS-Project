@@ -1,0 +1,99 @@
+{
+  "name": "@endo/marshal",
+  "version": "1.8.0",
+  "description": "marshal: encoding and deconding of Passable subgraphs",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./tools/marshal-test-data.js": "./tools/marshal-test-data.js",
+    "./tools/prepare-unicode-code-point-order.js": "./tools/prepare-unicode-code-point-order.js",
+    "./tools/prepare-utf16-code-unit-order.js": "./tools/prepare-utf16-code-unit-order.js",
+    "./tools/prepare-error-if-order-choice-matters.js": "./tools/prepare-error-if-order-choice-matters.js",
+    "./package.json": "./package.json"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "exit 0",
+    "prepack": "tsc --build tsconfig.build.json",
+    "postpack": "git clean -fX \"*.d.ts*\" \"*.d.cts*\" \"*.d.mts*\" \"*.tsbuildinfo\"",
+    "test": "ses-ava",
+    "test:c8": "c8 ${C8_OPTIONS:-} ses-ava",
+    "test:xs": "exit 0",
+    "pretty-fix": "prettier --write '**/*.js'",
+    "pretty-check": "prettier --check '**/*.js'",
+    "lint-fix": "yarn lint:eslint --fix && yarn lint:types",
+    "lint": "yarn lint:types && yarn lint:eslint",
+    "lint:types": "tsc",
+    "lint:eslint": "eslint '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endojs/endo.git",
+    "directory": "packages/marshal"
+  },
+  "keywords": [
+    "marshal"
+  ],
+  "author": "Endo contributors",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/endojs/endo/issues"
+  },
+  "homepage": "https://github.com/endojs/endo#readme",
+  "dependencies": {
+    "@endo/common": "workspace:^",
+    "@endo/env-options": "workspace:^",
+    "@endo/errors": "workspace:^",
+    "@endo/eventual-send": "workspace:^",
+    "@endo/nat": "workspace:^",
+    "@endo/pass-style": "workspace:^",
+    "@endo/promise-kit": "workspace:^"
+  },
+  "devDependencies": {
+    "@endo/init": "workspace:^",
+    "@endo/lockdown": "workspace:^",
+    "@endo/ses-ava": "workspace:^",
+    "@fast-check/ava": "catalog:dev",
+    "ava": "catalog:dev",
+    "c8": "catalog:dev",
+    "eslint": "catalog:dev",
+    "typescript": "~5.9.2"
+  },
+  "files": [
+    "./*.d.ts",
+    "./*.js",
+    "./*.map",
+    "LICENSE*",
+    "SECURITY*",
+    "dist",
+    "lib",
+    "src",
+    "tools"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "ava": {
+    "require": [
+      "@endo/ses-ava/prepare-endo-config.js"
+    ],
+    "files": [
+      "test/**/*.test.*"
+    ],
+    "timeout": "2m"
+  },
+  "sesAvaConfigs": {
+    "lockdown": "../../ava-endo-lockdown.config.mjs"
+  },
+  "typeCoverage": {
+    "atLeast": 85.3
+  }
+}

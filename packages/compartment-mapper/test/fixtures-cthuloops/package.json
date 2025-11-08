@@ -1,0 +1,11 @@
+{
+  "name": "cthuloops",
+  "version": "1.0.0",
+  "main": "./main.mjs",
+  "scripts": {
+    "preinstall": "echo DO NOT INSTALL TEST FIXTURES; exit -1"
+  },
+  "typeCoverage": {
+    "atLeast": 0
+  }
+}

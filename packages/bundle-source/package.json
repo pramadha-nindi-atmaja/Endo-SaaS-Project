@@ -1,0 +1,88 @@
+{
+  "name": "@endo/bundle-source",
+  "version": "4.1.2",
+  "description": "Create source bundles from ES Modules",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": "./src/tool.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./exported.js": "./exported.js",
+    "./cache.js": "./cache.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "exit 0",
+    "prepack": "tsc --build tsconfig.build.json",
+    "postpack": "git clean -fX \"*.d.ts*\" \"*.d.cts*\" \"*.d.mts*\" \"*.tsbuildinfo\"",
+    "test": "ava",
+    "test:xs": "exit 0",
+    "lint-fix": "eslint --fix '**/*.js'",
+    "lint": "yarn lint:types && yarn lint:eslint",
+    "lint:eslint": "eslint '**/*.js'",
+    "lint:types": "tsc"
+  },
+  "dependencies": {
+    "@endo/base64": "workspace:^",
+    "@endo/compartment-mapper": "workspace:^",
+    "@endo/evasive-transform": "workspace:^",
+    "@endo/init": "workspace:^",
+    "@endo/promise-kit": "workspace:^",
+    "@endo/where": "workspace:^",
+    "ts-blank-space": "^0.6.1"
+  },
+  "devDependencies": {
+    "@endo/lockdown": "workspace:^",
+    "@endo/ses-ava": "workspace:^",
+    "@endo/zip": "workspace:^",
+    "ava": "catalog:dev",
+    "c8": "catalog:dev",
+    "eslint": "catalog:dev",
+    "ses": "workspace:^",
+    "typescript": "~5.9.2"
+  },
+  "keywords": [],
+  "files": [
+    "./*.d.ts",
+    "./*.js",
+    "./*.map",
+    "LICENSE*",
+    "SECURITY*",
+    "dist",
+    "lib",
+    "src",
+    "tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endojs/endo",
+    "directory": "packages/bundle-source"
+  },
+  "author": "Endo contributors",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/endojs/endo/issues"
+  },
+  "homepage": "https://github.com/endojs/endo#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.*"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ],
+    "ignorePatterns": [
+      "dist/",
+      "scripts/",
+      "demo/"
+    ]
+  },
+  "typeCoverage": {
+    "atLeast": 69.54
+  }
+}

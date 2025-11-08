@@ -1,0 +1,3 @@
+lockdown({
+  errorTaming: 'unsafe',
+});

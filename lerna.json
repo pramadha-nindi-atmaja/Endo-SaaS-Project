@@ -1,0 +1,14 @@
+{
+  "command": {
+    "version": {
+      "message": "chore(release): publish",
+      "conventionalCommits": true,
+      "preid": "dev",
+      "changelogPreset": "conventionalcommits"
+    }
+  },
+  "includeMergedTags": true,
+  "npmClient": "yarn",
+  "version": "independent",
+  "useNx": false
+}

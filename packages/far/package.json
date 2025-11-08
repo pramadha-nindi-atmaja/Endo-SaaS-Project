@@ -1,0 +1,81 @@
+{
+  "name": "@endo/far",
+  "version": "1.1.14",
+  "description": "Helpers for distributed objects.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "ses-ava",
+    "test:c8": "c8 ${C8_OPTIONS:-} ses-ava",
+    "test:xs": "exit 0",
+    "build": "exit 0",
+    "prepack": "tsc --build tsconfig.build.json",
+    "postpack": "git clean -fX \"*.d.ts*\" \"*.d.cts*\" \"*.d.mts*\" \"*.tsbuildinfo\"",
+    "lint-fix": "yarn lint:eslint --fix && yarn lint:types",
+    "lint": "yarn lint:types && yarn lint:eslint",
+    "lint:types": "tsc",
+    "lint:eslint": "eslint '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endojs/endo.git",
+    "directory": "packages/far"
+  },
+  "author": "Endo contributors",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/endojs/endo/issues"
+  },
+  "homepage": "https://github.com/endojs/endo#readme",
+  "dependencies": {
+    "@endo/errors": "workspace:^",
+    "@endo/eventual-send": "workspace:^",
+    "@endo/pass-style": "workspace:^"
+  },
+  "devDependencies": {
+    "@endo/init": "workspace:^",
+    "@endo/ses-ava": "workspace:^",
+    "ava": "catalog:dev",
+    "c8": "catalog:dev",
+    "eslint": "catalog:dev",
+    "typescript": "~5.9.2"
+  },
+  "keywords": [
+    "eventual send",
+    "wavy dot",
+    "remote objects",
+    "tildot",
+    "far"
+  ],
+  "files": [
+    "./*.d.ts",
+    "./*.js",
+    "./*.map",
+    "LICENSE*",
+    "SECURITY*",
+    "dist",
+    "lib",
+    "src",
+    "tools"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sesAvaConfigs": {
+    "shims": "../../ava-endo-shims-only.config.mjs",
+    "lockdown": "../../ava-endo-lockdown.config.mjs",
+    "unsafe": "../../ava-endo-lockdown-unsafe.config.mjs"
+  },
+  "typeCoverage": {
+    "atLeast": 100
+  }
+}

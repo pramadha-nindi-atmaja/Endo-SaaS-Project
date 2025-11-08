@@ -1,0 +1,69 @@
+{
+  "name": "@endo/eslint-plugin",
+  "version": "2.4.0",
+  "description": "ESLint plugin for using Endo",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Endo contributors",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "mocha",
+    "test:xs": "exit 0",
+    "build": "exit 0",
+    "lint": "yarn lint:types && yarn lint:eslint",
+    "lint-fix": "eslint --fix .",
+    "lint:eslint": "eslint .",
+    "lint:types": "tsc",
+    "postpack": "git clean -fX \"*.d.ts*\" \"*.d.cts*\" \"*.d.mts*\" \"*.tsbuildinfo\""
+  },
+  "dependencies": {
+    "@eslint-community/eslint-utils": "^4.7.0",
+    "requireindex": "~1.2.0",
+    "tsutils": "~3.21.0",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.39.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10",
+    "eslint": "catalog:dev",
+    "mocha": "^10.6.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "directory": "packages/eslint-plugin"
+  },
+  "files": [
+    "./*.d.ts",
+    "./*.js",
+    "./*.map",
+    "LICENSE*",
+    "SECURITY*",
+    "dist",
+    "lib",
+    "src",
+    "tools"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "plugin:@endo/internal"
+    ],
+    "parserOptions": {
+      "sourceType": "script"
+    },
+    "rules": {
+      "import/extensions": "off"
+    },
+    "env": {
+      "node": true
+    }
+  }
+}
