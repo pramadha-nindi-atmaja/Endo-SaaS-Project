@@ -22,7 +22,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsdoc": "^50.6.1",
-    "lerna": "^8.1.8",
+    "lerna": "^9.0.0",
     "prettier": "^3.5.3",
     "type-coverage": "^2.29.1",
     "typedoc": "^0.28.13",
