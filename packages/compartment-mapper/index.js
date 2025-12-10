@@ -20,3 +20,6 @@ export {
   makeScript as makeBundle,
   writeScript as writeBundle,
 } from './src/bundle.js';
+
+// Easier imports utilities
+export { importModule, loadModule, importModuleDev, importModuleRelaxed } from './src/easier-imports.js';
