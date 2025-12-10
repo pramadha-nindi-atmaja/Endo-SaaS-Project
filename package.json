@@ -13,7 +13,7 @@
     "@jessie.js/eslint-plugin": "^0.4.2",
     "@lavamoat/allow-scripts": "^3.3.5",
     "@lavamoat/preinstall-always-fail": "^2.1.1",
-    "@octokit/core": "^3.4.0",
+    "@octokit/core": "^7.0.6",
     "@types/node": "^20.17.24",
     "ava": "^6.4.1",
     "eslint": "^8.57.1",
