@@ -337,7 +337,7 @@ jobs:
 
       - name: Restore XS binary cache
         id: restore-xs
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: bin/xst
           key: xst-lin64-${{ matrix.moddable-version }}
